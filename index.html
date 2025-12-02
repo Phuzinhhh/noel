@@ -1,111 +1,329 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>  
+<head>
     <meta charset="UTF-8">
-    <title>Lớp_Họ và tên</title>
+    <title>Noel – Họ và tên</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #0b1020, #162447);
+            color: #f5f5f5;
+        }
+        .page {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 24px;
+            background: rgba(10, 14, 40, 0.9);
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        header {
+            text-align: center;
+            padding: 24px 16px 12px;
+            border-radius: 16px;
+            background: radial-gradient(circle at top, #ff9a9e, #fad0c4 40%, #1f1c2c);
+            color: #111;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+        }
+        header p {
+            margin: 8px 0 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .label {
+            display: inline-block;
+            padding: 4px 10px;
+            margin-top: 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.18);
+            color: #fff;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        section {
+            margin-top: 24px;
+            padding: 18px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        section h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: #ffeaa7;
+        }
+        section h3 {
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+            color: #81ecec;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 0.96rem;
+        }
+        ul, ol {
+            padding-left: 22px;
+            margin-top: 6px;
+        }
+        li {
+            margin-bottom: 4px;
+        }
+        .two-cols {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .two-cols > div {
+            flex: 1 1 260px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 10px;
+            text-align: left;
+        }
+        th {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        a {
+            color: #74b9ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .media-card {
+            padding: 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .media-card h4 {
+            margin: 0 0 8px;
+            font-size: 0.95rem;
+            color: #ffeaa7;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+        audio, video {
+            width: 100%;
+            border-radius: 10px;
+            outline: none;
+        }
+        footer {
+            margin-top: 26px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #b2bec3;
+        }
+        footer span {
+            color: #ffeaa7;
+        }
+        /* tuyết rơi nhẹ nhàng */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            pointer-events: none;
+        }
+        .flake {
+            position: absolute;
+            top: -10px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            animation: fall linear infinite;
+        }
+        .flake:nth-child(1) { left: 10%; animation-duration: 9s; animation-delay: 0s; }
+        .flake:nth-child(2) { left: 25%; animation-duration: 11s; animation-delay: 2s; }
+        .flake:nth-child(3) { left: 40%; animation-duration: 10s; animation-delay: 1s; }
+        .flake:nth-child(4) { left: 60%; animation-duration: 13s; animation-delay: 3s; }
+        .flake:nth-child(5) { left: 80%; animation-duration: 8s;  animation-delay: 1s; }
+
+        @keyframes fall {
+            0%   { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(120vh); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                margin: 16px;
+                padding: 16px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<h1 style="color:red;text-align:center;">🎄 CHỦ ĐỀ NOEL 🎄</h1>
+<div class="snow">
+    <div class="flake"></div>
+    <div class="flake"></div>
+    <div class="flake"></div>
+    <div class="flake"></div>
+    <div class="flake"></div>
+</div>
 
-<hr>
+<div class="page">
+    <header>
+        <h1>🎄 NOEL ẤM ÁP 🎄</h1>
+        <p><b>Noel</b> – thời khắc sum vầy, sẻ chia và gửi gắm điều ước nhỏ bé.</p>
+        <div class="label">Bài thực hành HTML – Chủ đề Noel</div>
+    </header>
 
-<!-- 1. ĐỊNH DẠNG VĂN BẢN -->
-<h2>1. Định dạng văn bản</h2>
-<p>
-    <b>Noel</b> là dịp lễ <i>Giáng Sinh</i> diễn ra vào 
-    <u>25/12</u> hằng năm.  
-    Đây là dịp mọi người <mark>sum họp, trao quà</mark> và 
-    gửi đến nhau những lời chúc an lành.
-</p>
+    <!-- 1. ĐỊNH DẠNG VĂN BẢN -->
+    <section>
+        <h2>1. Định dạng văn bản</h2>
+        <p>
+            <b>Noel</b> là dịp lễ <i>Giáng Sinh</i> diễn ra vào
+            <u>25/12</u> hằng năm. 
+            Đây là lúc mọi người <mark>quây quần bên nhau</mark>, 
+            trao nhau những món quà nhỏ và lời chúc bình an.
+        </p>
+        <p>
+            <span style="color:#55efc4; font-weight:bold;">
+                “Chỉ cần bên cạnh là những người mình thương,
+                mọi nơi đều có thể trở thành mùa Giáng Sinh ấm áp.”
+            </span>
+        </p>
+    </section>
 
-<p>
-    <font color="green" size="4">
-        Chúc mọi người một mùa Giáng Sinh ấm áp và hạnh phúc!
-    </font>
-</p>
+    <!-- 2. TẠO DANH SÁCH -->
+    <section>
+        <h2>2. Tạo danh sách</h2>
+        <div class="two-cols">
+            <div>
+                <h3>Các hoạt động yêu thích dịp Noel</h3>
+                <ul>
+                    <li>Trang trí cây thông cùng gia đình.</li>
+                    <li>Đi dạo phố ngắm đèn và chụp hình.</li>
+                    <li>Trao quà bí mật cho bạn bè.</li>
+                    <li>Nghe nhạc Giáng Sinh trước khi ngủ.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Checklist chuẩn bị Noel</h3>
+                <ol>
+                    <li>Lên danh sách quà tặng.</li>
+                    <li>Viết thiệp gửi lời chúc.</li>
+                    <li>Trang trí góc học tập / làm việc.</li>
+                    <li>Lưu lại khoảnh khắc bằng vài tấm ảnh.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
 
-<hr>
+    <!-- 3. TẠO BẢNG -->
+    <section>
+        <h2>3. Tạo bảng</h2>
+        <h3>Bảng gợi ý quà Noel nhỏ xinh</h3>
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Món quà</th>
+                <th>Dành cho</th>
+                <th>Ghi chú</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Móc khóa Noel</td>
+                <td>Bạn thân</td>
+                <td>Nhỏ, dễ tặng, kèm lời chúc.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Thiệp viết tay</td>
+                <td>Gia đình</td>
+                <td>Thêm vài kỷ niệm đáng nhớ.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Socola</td>
+                <td>Người đặc biệt</td>
+                <td>Ngọt nhưng không quá cầu kỳ.</td>
+            </tr>
+        </table>
+    </section>
 
-<!-- 2. TẠO DANH SÁCH -->
-<h2>2. Tạo danh sách</h2>
+    <!-- 4. TẠO LIÊN KẾT -->
+    <section>
+        <h2>4. Tạo liên kết</h2>
+        <p>
+            Muốn tìm thêm ý tưởng trang trí Noel,
+            Chủ nhân có thể truy cập:
+            <a href="https://www.google.com/search?q=christmas+decor+ideas" target="_blank">
+                Gợi ý trang trí Noel trên Google
+            </a>
+        </p>
+    </section>
 
-<h3>Danh sách món quà Noel:</h3>
-<ul>
-    <li>Gấu bông</li>
-    <li>Socola</li>
-    <li>Thiệp chúc mừng</li>
-    <li>Đèn trang trí</li>
-</ul>
+    <!-- 5. CHÈN HÌNH ẢNH, ÂM THANH, VIDEO -->
+    <section>
+        <h2>5. Chèn hình ảnh, âm thanh, video</h2>
+        <div class="media-grid">
+            <div class="media-card">
+                <h4>Ảnh không khí Giáng Sinh</h4>
+                <!-- Thay link ảnh của Chủ nhân vào thuộc tính src -->
+                <img src="https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg" alt="Không khí Noel">
+            </div>
 
-<h3>Các hoạt động Noel:</h3>
-<ol>
-    <li>Trang trí cây thông</li>
-    <li>Trao đổi quà</li>
-    <li>Chụp hình lưu niệm</li>
-    <li>Đi chơi tối Noel</li>
-</ol>
+            <div class="media-card">
+                <h4>Nhạc Giáng Sinh</h4>
+                <!-- Thay link file audio của Chủ nhân vào src -->
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Trình duyệt của bạn không hỗ trợ audio.
+                </audio>
+            </div>
 
-<hr>
+            <div class="media-card">
+                <h4>Video chủ đề Noel</h4>
+                <!-- Có thể thay bằng link video HTML5 (.mp4) hoặc nhúng iframe YouTube -->
+                <video controls>
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
+            </div>
+        </div>
+    </section>
 
-<!-- 3. TẠO BẢNG -->
-<h2>3. Tạo bảng</h2>
-
-<table border="1" cellpadding="8" cellspacing="0">
-    <tr style="background-color:#ddd;">
-        <th>STT</th>
-        <th>Món quà</th>
-        <th>Người tặng</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Gấu bông</td>
-        <td>Bạn An</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Socola</td>
-        <td>Bạn Bình</td>
-    </tr>
-</table>
-
-<hr>
-
-<!-- 4. TẠO LIÊN KẾT -->
-<h2>4. Tạo liên kết</h2>
-
-<p>
-    Truy cập Google để tìm ý tưởng Noel:
-    <a href="https://www.google.com" target="_blank">
-        Nhấn vào đây
-    </a>
-</p>
-
-<hr>
-
-<!-- 5. CHÈN HÌNH ẢNH - ÂM THANH - VIDEO -->
-<h2>5. Chèn hình ảnh, âm thanh, video</h2>
-
-<h3>Hình ảnh cây thông Noel</h3>
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Christmas_Tree_2013.jpg"
-     width="300">
-
-<h3>Nhạc Giáng Sinh</h3>
-<audio controls>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
-<h3>Video Noel</h3>
-<iframe width="420" height="236"
-        src="https://www.youtube.com/embed/RTtc2pM1boE"
-        allowfullscreen>
-</iframe>
-
-<hr>
-
-<p style="text-align:center;">
-    👨‍🎓 Bài làm của: <b>Họ tên sinh viên</b> – Lớp: <b>Lớp của bạn</b>
-</p>
+    <footer>
+        Bài làm của: <span>Họ và tên</span> – Lớp: <span>Lớp của bạn</span>
+    </footer>
+</div>
 
 </body>
 </html>
