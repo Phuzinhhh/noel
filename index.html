@@ -1,329 +1,854 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Noel – Họ và tên</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: linear-gradient(135deg, #0b1020, #162447);
-            color: #f5f5f5;
-        }
-        .page {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 24px;
-            background: rgba(10, 14, 40, 0.9);
-            border-radius: 18px;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        header {
-            text-align: center;
-            padding: 24px 16px 12px;
-            border-radius: 16px;
-            background: radial-gradient(circle at top, #ff9a9e, #fad0c4 40%, #1f1c2c);
-            color: #111;
-            position: relative;
-            overflow: hidden;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.4rem;
-            letter-spacing: 1px;
-        }
-        header p {
-            margin: 8px 0 0;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        .label {
-            display: inline-block;
-            padding: 4px 10px;
-            margin-top: 10px;
-            border-radius: 999px;
-            background: rgba(0, 0, 0, 0.18);
-            color: #fff;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        section {
-            margin-top: 24px;
-            padding: 18px 16px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        section h2 {
-            margin-top: 0;
-            font-size: 1.3rem;
-            color: #ffeaa7;
-        }
-        section h3 {
-            margin-bottom: 6px;
-            font-size: 1.05rem;
-            color: #81ecec;
-        }
-        p {
-            line-height: 1.6;
-            font-size: 0.96rem;
-        }
-        ul, ol {
-            padding-left: 22px;
-            margin-top: 6px;
-        }
-        li {
-            margin-bottom: 4px;
-        }
-        .two-cols {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-        .two-cols > div {
-            flex: 1 1 260px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 8px;
-            font-size: 0.95rem;
-        }
-        th, td {
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 8px 10px;
-            text-align: left;
-        }
-        th {
-            background: rgba(255, 255, 255, 0.08);
-        }
-        tr:nth-child(even) td {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        a {
-            color: #74b9ff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
-            margin-top: 10px;
-        }
-        .media-card {
-            padding: 10px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.04);
-        }
-        .media-card h4 {
-            margin: 0 0 8px;
-            font-size: 0.95rem;
-            color: #ffeaa7;
-        }
-        img {
-            max-width: 100%;
-            border-radius: 10px;
-            display: block;
-        }
-        audio, video {
-            width: 100%;
-            border-radius: 10px;
-            outline: none;
-        }
-        footer {
-            margin-top: 26px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #b2bec3;
-        }
-        footer span {
-            color: #ffeaa7;
-        }
-        /* tuyết rơi nhẹ nhàng */
-        .snow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            pointer-events: none;
-        }
-        .flake {
-            position: absolute;
-            top: -10px;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            animation: fall linear infinite;
-        }
-        .flake:nth-child(1) { left: 10%; animation-duration: 9s; animation-delay: 0s; }
-        .flake:nth-child(2) { left: 25%; animation-duration: 11s; animation-delay: 2s; }
-        .flake:nth-child(3) { left: 40%; animation-duration: 10s; animation-delay: 1s; }
-        .flake:nth-child(4) { left: 60%; animation-duration: 13s; animation-delay: 3s; }
-        .flake:nth-child(5) { left: 80%; animation-duration: 8s;  animation-delay: 1s; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Noel Ấm Áp · Christmas 2025</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        @keyframes fall {
-            0%   { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(120vh); opacity: 0; }
-        }
+<style>
+/* ========== RESET ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-deep:#05000a;
+  --bg-red:#8b0000;
+  --bg-red-dark:#2b0005;
+  --gold:#ffd700;
+  --gold-soft:#ffe8a8;
+  --text-soft:#ffe9d5;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(255,255,255,.16) 0,transparent 45%),
+    radial-gradient(circle at 90% 0%,rgba(255,215,0,.2) 0,transparent 55%),
+    linear-gradient(150deg,#02000a,#2b000d,#02000a);
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-        @media (max-width: 600px) {
-            .page {
-                margin: 16px;
-                padding: 16px;
-            }
-            header h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+/* ========== STARS & SNOW ========== */
+.stars{
+  position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(1px 1px at 20% 30%,#fff 50%,transparent 50%),
+    radial-gradient(1.2px 1.2px at 80% 15%,#fff 50%,transparent 50%),
+    radial-gradient(1.6px 1.6px at 40% 85%,#fff 50%,transparent 50%);
+  opacity:.7;
+  animation:twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.3}to{opacity:.9}}
+
+.snowflakes-container{
+  position:fixed;inset:0;pointer-events:none;z-index:2;
+}
+.snowflake{
+  position:absolute;background:#fff;border-radius:50%;
+  animation:snow linear infinite;
+}
+@keyframes snow{
+  0%{transform:translateY(-10px) translateX(0)}
+  100%{transform:translateY(100vh) translateX(25px)}
+}
+
+/* ========== NAV & SCROLLBAR ========== */
+.nav-wrap{
+  position:sticky;top:0;z-index:10;
+}
+.nav{
+  backdrop-filter:blur(16px);
+  background:linear-gradient(90deg,rgba(0,0,0,.9),rgba(70,0,15,.9),rgba(0,0,0,.9));
+  border-bottom:1px solid rgba(255,215,0,.6);
+  box-shadow:0 10px 30px #000;
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:10px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  flex-wrap:wrap;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:8px;font-weight:650;
+  color:var(--gold-soft);letter-spacing:.04em;font-size:.95rem;
+}
+.nav-brand i{color:var(--gold)}
+.nav-links{
+  display:flex;flex-wrap:wrap;gap:12px;font-size:.88rem;
+}
+.nav-links a{
+  color:#fefefe;text-decoration:none;padding:6px 10px;border-radius:999px;
+  border:1px solid transparent;transition:.25s;
+}
+.nav-links a:hover{
+  border-color:var(--gold);
+  background:rgba(255,215,0,.12);
+}
+.nav-pill{
+  font-size:.8rem;padding:5px 11px;border-radius:999px;
+  border:1px solid rgba(255,215,0,.7);
+  background:rgba(0,0,0,.6);
+  color:var(--gold-soft);display:flex;align-items:center;gap:6px;
+  white-space:nowrap;
+}
+.nav-pill i{color:var(--gold)}
+
+/* thanh progress khi cuộn */
+.scrollbar{
+  height:3px;
+  background:linear-gradient(90deg,#ffdf7b,#ff9c3a,#ffe);
+  transform-origin:left center;
+  transform:scaleX(0);
+  transition:transform .1s linear;
+}
+
+/* ========== PAGE WRAPPER ========== */
+.page{
+  max-width:1200px;margin:0 auto;padding:24px 18px 40px;position:relative;z-index:3;
+}
+
+/* ========== HERO ========== */
+.hero{
+  display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1.2fr);
+  gap:26px;margin-top:18px;padding:26px 22px;
+  border-radius:24px;
+  background:
+    radial-gradient(circle at top,rgba(255,255,255,.2) 0,transparent 55%),
+    linear-gradient(145deg,rgba(139,0,0,.96),rgba(12,0,6,.96));
+  border:2px solid rgba(255,215,0,.9);
+  box-shadow:0 25px 70px #000;
+  overflow:hidden;position:relative;
+}
+.hero::before{
+  content:"";position:absolute;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,215,0,.55) 0,transparent 70%);
+  top:-90px;right:-40px;opacity:.7;
+}
+.hero-left{position:relative;z-index:1}
+.hero-kicker{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  text-transform:uppercase;font-size:.85rem;letter-spacing:.15em;
+  color:var(--gold-soft);margin-bottom:8px;
+}
+.hero-kicker span{
+  padding:3px 9px;border-radius:999px;border:1px solid rgba(255,215,0,.65);
+  background:rgba(0,0,0,.45);font-size:.72rem;
+}
+.hero-title{
+  font-size:clamp(2.2rem,3vw + 1rem,3.4rem);
+  line-height:1.05;color:var(--gold);
+  text-shadow:0 0 16px rgba(255,215,0,.9),0 14px 40px #000;
+  margin-bottom:12px;
+}
+.hero-sub{
+  font-size:1rem;color:var(--text-soft);max-width:520px;margin-bottom:18px;
+}
+.hero-cta{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;
+}
+.btn{
+  border-radius:999px;padding:10px 18px;border:1px solid transparent;
+  font-size:.94rem;font-weight:600;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;transition:.22s;white-space:nowrap;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),#ff9b32);
+  color:#3b0000;border-color:#fff4c2;
+  box-shadow:0 9px 22px #000;
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 13px 28px #000}
+.btn-ghost{
+  background:rgba(0,0,0,.45);
+  border-color:rgba(255,215,0,.6);
+  color:#ffe9c8;
+}
+.btn-ghost:hover{background:rgba(0,0,0,.75)}
+
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:14px;font-size:.9rem;color:#ffe9c8;
+}
+.hero-meta-item{display:flex;align-items:center;gap:6px}
+.hero-meta-item i{color:var(--gold)}
+
+.hero-right{
+  position:relative;z-index:1;display:flex;align-items:center;justify-content:center;
+  perspective:1000px;
+}
+.hero-card{
+  width:100%;max-width:360px;aspect-ratio:3/4;border-radius:24px;
+  background:linear-gradient(145deg,#1b0008,#36000f);
+  border:1px solid rgba(255,215,0,.7);
+  box-shadow:0 18px 45px #000;
+  transform:rotateY(-10deg) rotateX(6deg);
+  transform-style:preserve-3d;
+  overflow:hidden;position:relative;
+}
+.hero-card img{
+  width:100%;height:100%;object-fit:cover;opacity:.95;
+}
+.hero-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.95),rgba(0,0,0,.15));
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:14px 15px;gap:6px;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.8rem;padding:3px 9px;border-radius:999px;
+  border:1px solid rgba(255,215,0,.7);background:rgba(0,0,0,.55);
+  color:var(--gold-soft);
+}
+.hero-card-title{font-size:1.02rem;font-weight:600;color:#fff9eb}
+.hero-card-meta{
+  display:flex;justify-content:space-between;font-size:.8rem;color:#fbe3c3;
+}
+
+/* ========== GENERIC SECTION ========== */
+.section{margin-top:40px}
+.section-header{margin-bottom:16px}
+.section-title{
+  font-size:1.8rem;color:var(--gold);
+  display:flex;align-items:center;gap:10px;
+}
+.section-title span{
+  font-size:1rem;color:#ffe9c8;font-weight:400;
+}
+.section-title i{color:var(--gold)}
+.section-desc{font-size:.96rem;color:var(--text-soft);max-width:650px}
+
+/* ========== VIDEO SECTION ========== */
+.video-wrapper{margin-top:16px;display:flex;justify-content:center}
+.video-card{
+  position:relative;width:100%;max-width:780px;aspect-ratio:16/9;
+  border-radius:22px;border:2px solid rgba(255,215,0,.9);
+  box-shadow:0 18px 55px #000;overflow:hidden;background:#000;
+  cursor:pointer;transition:.24s;
+}
+.video-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 22px 65px #000;border-color:#fff;
+}
+.video-card.playing{
+  animation:videoGlow 1.6s ease-in-out infinite;
+}
+@keyframes videoGlow{
+  0%,100%{box-shadow:0 0 22px rgba(255,215,0,.9),0 18px 55px #000}
+  50%{box-shadow:0 0 32px #fff,0 20px 70px #000}
+}
+.video-thumb{
+  width:100%;height:100%;object-fit:cover;filter:saturate(1.1);
+}
+.video-overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;
+  background:radial-gradient(circle at center,rgba(0,0,0,.25),rgba(0,0,0,.7));
+  color:#fffbee;text-align:center;padding:10px;
+}
+.video-play-icon{
+  font-size:76px;text-shadow:0 4px 18px #000;
+}
+.video-caption{font-size:.95rem;color:#ffe8c8}
+.video-badge{
+  margin-top:4px;padding:4px 10px;font-size:.78rem;border-radius:999px;
+  border:1px solid rgba(255,215,0,.8);background:rgba(0,0,0,.6);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.video-badge i{color:var(--gold)}
+.video-iframe{width:100%;height:100%;border:none;display:block}
+
+/* ========== ABOUT / TIMELINE ========== */
+.about-layout{
+  display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1.2fr);
+  gap:22px;margin-top:16px;
+}
+.card{
+  position:relative;border-radius:18px;padding:16px 16px 18px;
+  background:linear-gradient(150deg,rgba(139,0,0,.9),rgba(40,0,12,.96));
+  border:1px solid rgba(255,215,0,.8);box-shadow:0 14px 40px #000;
+  overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;inset:-40%;
+  background:radial-gradient(circle at top left,rgba(255,255,255,.15) 0,transparent 60%);
+  opacity:.28;
+}
+.card-inner{position:relative;z-index:1}
+.card h3{
+  font-size:1.1rem;color:var(--gold);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.card p{font-size:.94rem;color:#ffe9d7;margin-bottom:8px}
+
+/* timeline ngang */
+.timeline{
+  display:flex;flex-direction:column;gap:12px;font-size:.9rem;color:#ffe8cf;
+}
+.timeline-row{
+  display:flex;align-items:flex-start;gap:12px;
+}
+.timeline-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 10px rgba(255,215,0,.9);
+  margin-top:5px;flex-shrink:0;
+}
+.timeline-label{font-weight:600;color:#fff7dd}
+.timeline-note{opacity:.9}
+
+/* bảng năm */
+table{
+  width:100%;border-collapse:collapse;margin-top:6px;font-size:.9rem;
+}
+th,td{padding:8px 9px;text-align:left}
+th{
+  background:linear-gradient(135deg,#8b0000,#b22222);
+  color:var(--gold);border-bottom:2px solid var(--gold);
+}
+td{border-bottom:1px solid rgba(255,215,0,.6)}
+tbody tr:nth-child(odd) td{background:rgba(139,0,0,.95)}
+tbody tr:nth-child(even) td{background:rgba(178,34,34,.88)}
+.year-highlight{color:var(--gold-soft);font-weight:700}
+
+/* ========== GALLERY ========== */
+.gallery-grid{
+  margin-top:16px;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.gallery-item{
+  position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;
+  background:#000;border:1px solid rgba(255,215,0,.7);
+  box-shadow:0 12px 34px #000;
+  transform-origin:center;transition:.28s;
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;transform:scale(1.04);
+  transition:transform .4s;
+}
+.gallery-item:hover{
+  transform:translateY(-4px) rotate(-.6deg);
+  box-shadow:0 18px 50px #000;border-color:#fff;
+}
+.gallery-item:hover img{transform:scale(1.1)}
+.gallery-label{
+  position:absolute;left:8px;bottom:8px;
+  padding:4px 9px;font-size:.78rem;border-radius:999px;
+  background:rgba(0,0,0,.7);border:1px solid rgba(255,215,0,.9);
+  color:#fff6d1;display:inline-flex;align-items:center;gap:6px;
+}
+.gallery-label i{color:var(--gold)}
+
+/* ========== WISHES ========== */
+.wish-layout{
+  display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+  gap:20px;margin-top:16px;
+}
+.wish-form{
+  background:linear-gradient(145deg,rgba(139,0,0,.9),rgba(40,0,10,.96));
+  border-radius:16px;padding:14px 14px 16px;
+  border:1px solid rgba(255,215,0,.8);box-shadow:0 12px 34px #000;
+}
+.wish-form input,
+.wish-form textarea{
+  width:100%;margin-top:8px;padding:9px 10px;border-radius:10px;
+  border:1px solid rgba(255,215,0,.8);
+  background:rgba(0,0,0,.4);color:#fffbe6;font-size:.9rem;
+  outline:none;
+}
+.wish-form textarea{min-height:90px;resize:vertical}
+.wish-form input::placeholder,
+.wish-form textarea::placeholder{color:rgba(255,245,205,.7)}
+.wish-preview{
+  background:linear-gradient(150deg,rgba(139,0,0,.9),rgba(20,0,8,.96));
+  border-radius:16px;padding:14px;border:1px solid rgba(255,215,0,.8);
+  box-shadow:0 12px 34px #000;font-size:.9rem;color:#ffe9cf;
+  position:relative;overflow:hidden;
+}
+.wish-preview::before{
+  content:"";position:absolute;inset:-40%;
+  background:radial-gradient(circle at top right,rgba(255,255,255,.2) 0,transparent 60%);
+  opacity:.3;
+}
+.wish-preview-inner{position:relative;z-index:1}
+.wish-preview-header{
+  display:flex;align-items:center;gap:8px;margin-bottom:6px;
+  color:var(--gold-soft);font-weight:600;
+}
+.wish-preview-body{white-space:pre-line;font-style:italic}
+.wish-preview-empty{opacity:.65}
+
+/* ========== FOOTER ========== */
+footer{
+  margin-top:40px;padding:20px 14px 16px;border-radius:18px;
+  background:linear-gradient(145deg,rgba(10,0,6,.96),rgba(80,0,16,.96));
+  border:1px solid rgba(255,215,0,.85);box-shadow:0 -12px 40px #000;
+  text-align:center;color:var(--gold-soft);font-size:.9rem;
+}
+.footer-links{
+  display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
+  margin:10px 0 6px;
+}
+.footer-links a{
+  color:#fff;text-decoration:none;font-size:.9rem;transition:.22s;
+}
+.footer-links a:hover{color:var(--gold);text-decoration:underline}
+
+/* ========== REVEAL ON SCROLL ========== */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:950px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero-right{order:-1}
+}
+@media(max-width:780px){
+  .about-layout,.wish-layout{grid-template-columns:minmax(0,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nav-pill{display:none}
+}
+@media(max-width:520px){
+  .gallery-grid{grid-template-columns:minmax(0,1fr)}
+  .hero{padding:20px 16px}
+}
+</style>
 </head>
+
 <body>
+<div class="stars"></div>
+<div class="snowflakes-container" id="snowflakes"></div>
 
-<div class="snow">
-    <div class="flake"></div>
-    <div class="flake"></div>
-    <div class="flake"></div>
-    <div class="flake"></div>
-    <div class="flake"></div>
+<div class="nav-wrap">
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <i class="fas fa-holly-berry"></i>
+        <span>Noel Ấm Áp 2025</span>
+      </div>
+      <div class="nav-links">
+        <a href="#top"><i class="fas fa-home"></i> Trang chủ</a>
+        <a href="#video"><i class="fas fa-music"></i> Video Noel</a>
+        <a href="#about"><i class="fas fa-book"></i> Ý nghĩa</a>
+        <a href="#gallery"><i class="fas fa-images"></i> Khoảnh khắc</a>
+        <a href="#wishes"><i class="fas fa-heart"></i> Lời chúc</a>
+      </div>
+      <div class="nav-pill">
+        <i class="far fa-clock"></i>
+        <span id="countdownText">Đếm ngược Noel…</span>
+      </div>
+    </div>
+  </div>
+  <div class="scrollbar" id="scrollbar"></div>
 </div>
 
-<div class="page">
-    <header>
-        <h1>🎄 NOEL ẤM ÁP 🎄</h1>
-        <p><b>Noel</b> – thời khắc sum vầy, sẻ chia và gửi gắm điều ước nhỏ bé.</p>
-        <div class="label">Bài thực hành HTML – Chủ đề Noel</div>
-    </header>
-
-    <!-- 1. ĐỊNH DẠNG VĂN BẢN -->
-    <section>
-        <h2>1. Định dạng văn bản</h2>
-        <p>
-            <b>Noel</b> là dịp lễ <i>Giáng Sinh</i> diễn ra vào
-            <u>25/12</u> hằng năm. 
-            Đây là lúc mọi người <mark>quây quần bên nhau</mark>, 
-            trao nhau những món quà nhỏ và lời chúc bình an.
-        </p>
-        <p>
-            <span style="color:#55efc4; font-weight:bold;">
-                “Chỉ cần bên cạnh là những người mình thương,
-                mọi nơi đều có thể trở thành mùa Giáng Sinh ấm áp.”
-            </span>
-        </p>
-    </section>
-
-    <!-- 2. TẠO DANH SÁCH -->
-    <section>
-        <h2>2. Tạo danh sách</h2>
-        <div class="two-cols">
-            <div>
-                <h3>Các hoạt động yêu thích dịp Noel</h3>
-                <ul>
-                    <li>Trang trí cây thông cùng gia đình.</li>
-                    <li>Đi dạo phố ngắm đèn và chụp hình.</li>
-                    <li>Trao quà bí mật cho bạn bè.</li>
-                    <li>Nghe nhạc Giáng Sinh trước khi ngủ.</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Checklist chuẩn bị Noel</h3>
-                <ol>
-                    <li>Lên danh sách quà tặng.</li>
-                    <li>Viết thiệp gửi lời chúc.</li>
-                    <li>Trang trí góc học tập / làm việc.</li>
-                    <li>Lưu lại khoảnh khắc bằng vài tấm ảnh.</li>
-                </ol>
-            </div>
+<main class="page">
+  <!-- HERO -->
+  <section class="hero reveal" id="top">
+    <div class="hero-left">
+      <div class="hero-kicker">
+        <i class="fas fa-star"></i> Mùa của yêu thương
+        <span><i class="fas fa-snowflake"></i> Christmas 2025</span>
+      </div>
+      <h1 class="hero-title">Chúc Mừng Giáng Sinh 2025</h1>
+      <p class="hero-sub">
+        Đèn vàng, cây thông xanh, tách cacao nóng và những người ta thương – chỉ
+        vậy thôi cũng đủ làm mùa đông trở nên ấm hơn rất nhiều.
+      </p>
+      <div class="hero-cta">
+        <a href="#video" class="btn btn-primary">
+          <i class="fas fa-play"></i> Xem & nghe nhạc Noel
+        </a>
+        <a href="#wishes" class="btn btn-ghost">
+          <i class="fas fa-heart"></i> Gửi lời chúc cho ai đó
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <i class="fas fa-calendar-day"></i> 25/12 · Noel 2025
         </div>
-    </section>
+        <div class="hero-meta-item">
+          <i class="fas fa-users"></i> Thời gian để ở bên gia đình & bạn bè
+        </div>
+      </div>
+    </div>
 
-    <!-- 3. TẠO BẢNG -->
-    <section>
-        <h2>3. Tạo bảng</h2>
-        <h3>Bảng gợi ý quà Noel nhỏ xinh</h3>
-        <table>
-            <tr>
-                <th>STT</th>
-                <th>Món quà</th>
-                <th>Dành cho</th>
+    <div class="hero-right">
+      <div class="hero-card">
+        <!-- Chủ nhân có thể đổi ảnh này -->
+        <img src="https://images.pexels.com/photos/1303098/pexels-photo-1303098.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Christmas scene" />
+        <div class="hero-card-overlay">
+          <span class="hero-tag">
+            <i class="fas fa-tree"></i> Christmas Night
+          </span>
+          <p class="hero-card-title">
+            Ánh đèn ấm áp, tiếng nhạc nhẹ và những câu chuyện chưa kể hết.
+          </p>
+          <div class="hero-card-meta">
+            <span><i class="fas fa-snowflake"></i> Winter · 2025</span>
+            <span><i class="fas fa-gift"></i> Chia sẻ yêu thương</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section reveal" id="video">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-music"></i> Video & nhạc Noel
+        <span>Phát trực tiếp trên trang, không cần rời đi đâu</span>
+      </h2>
+      <p class="section-desc">
+        Chủ nhân chỉ cần thay ID video YouTube ở phần JavaScript. Khi nhấp vào
+        khung dưới đây, video sẽ phát ngay trong trang, dùng luôn làm “nhạc nền”
+        cho buổi tối Noel.
+      </p>
+    </div>
+    <div class="video-wrapper">
+      <div class="video-card" id="videoCard" onclick="playYoutube()">
+        <!-- Ảnh cover video, có thể đổi -->
+        <img
+          id="videoThumb"
+          class="video-thumb"
+          src="https://images.pexels.com/photos/1303086/pexels-photo-1303086.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Christmas music cover"
+        />
+        <div class="video-overlay" id="videoOverlay">
+          <i class="fas fa-play-circle video-play-icon"></i>
+          <div class="video-caption">
+            Nhạc Giáng Sinh nhẹ nhàng để vừa nghe, vừa trò chuyện và nhìn đèn
+            lấp lánh.
+            <div class="video-badge">
+              <i class="fas fa-headphones"></i> Nhấp để phát từ YouTube
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT & TIMELINE -->
+  <section class="section reveal" id="about">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-book-open"></i> Nguồn gốc & ý nghĩa Giáng Sinh
+        <span>Đằng sau ngày lễ là cả một câu chuyện dài</span>
+      </h2>
+      <p class="section-desc">
+        Giáng Sinh (Christmas, Noel) khởi nguồn từ việc kỷ niệm ngày Chúa
+        Giê-su ra đời, nhưng theo thời gian đã trở thành một dịp lễ để người ta
+        cho nhau thêm lý do để quan tâm, hỏi han và ở bên nhau.
+      </p>
+    </div>
+
+    <div class="about-layout">
+      <div class="card">
+        <div class="card-inner">
+          <h3><i class="fas fa-church"></i> Câu chuyện từ Bethlehem</h3>
+          <p>
+            Theo truyền thống Kitô giáo, Chúa Giê-su được sinh ra tại Bethlehem
+            thuộc xứ Judea, dưới thời Đế quốc La Mã – khoảng giữa năm 7 TCN và
+            năm 2. Ngày 25/12 hằng năm được chọn làm ngày kỷ niệm sự kiện này.
+          </p>
+          <p>
+            Cùng với thời gian, hình ảnh ông già Noel, cây thông, hộp quà, ánh
+            đèn… khiến Giáng Sinh trở thành một mùa lễ ai cũng có thể tham gia –
+            dù có theo đạo hay không.
+          </p>
+          <div class="timeline">
+            <div class="timeline-row">
+              <div class="timeline-dot"></div>
+              <div>
+                <div class="timeline-label">Đêm trước Giáng Sinh</div>
+                <div class="timeline-note">
+                  Nhiều nơi tổ chức Thánh lễ, trang trí, tặng quà và quây quần
+                  bên nhau.
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-dot"></div>
+              <div>
+                <div class="timeline-label">Sáng 25/12</div>
+                <div class="timeline-note">
+                  Trẻ em háo hức mở quà, người lớn gửi lời chúc và bắt đầu một
+                  ngày mới thật yên bình.
+                </div>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <div class="timeline-dot"></div>
+              <div>
+                <div class="timeline-label">Sau Giáng Sinh</div>
+                <div class="timeline-note">
+                  Ở nhiều nước, ngày 26/12 (Boxing Day) vẫn là dịp nghỉ ngơi,
+                  gặp gỡ bạn bè và gia đình.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <h3><i class="fas fa-calendar-alt"></i> Ngày Giáng Sinh các năm</h3>
+          <p>Giáng Sinh luôn là 25/12, nhưng thứ trong tuần sẽ thay đổi.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Năm</th>
+                <th>Ngày</th>
+                <th>Thứ</th>
                 <th>Ghi chú</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Móc khóa Noel</td>
-                <td>Bạn thân</td>
-                <td>Nhỏ, dễ tặng, kèm lời chúc.</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Thiệp viết tay</td>
-                <td>Gia đình</td>
-                <td>Thêm vài kỷ niệm đáng nhớ.</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Socola</td>
-                <td>Người đặc biệt</td>
-                <td>Ngọt nhưng không quá cầu kỳ.</td>
-            </tr>
-        </table>
-    </section>
-
-    <!-- 4. TẠO LIÊN KẾT -->
-    <section>
-        <h2>4. Tạo liên kết</h2>
-        <p>
-            Muốn tìm thêm ý tưởng trang trí Noel,
-            Chủ nhân có thể truy cập:
-            <a href="https://www.google.com/search?q=christmas+decor+ideas" target="_blank">
-                Gợi ý trang trí Noel trên Google
-            </a>
-        </p>
-    </section>
-
-    <!-- 5. CHÈN HÌNH ẢNH, ÂM THANH, VIDEO -->
-    <section>
-        <h2>5. Chèn hình ảnh, âm thanh, video</h2>
-        <div class="media-grid">
-            <div class="media-card">
-                <h4>Ảnh không khí Giáng Sinh</h4>
-                <!-- Thay link ảnh của Chủ nhân vào thuộc tính src -->
-                <img src="https://images.pexels.com/photos/3819969/pexels-photo-3819969.jpeg" alt="Không khí Noel">
-            </div>
-
-            <div class="media-card">
-                <h4>Nhạc Giáng Sinh</h4>
-                <!-- Thay link file audio của Chủ nhân vào src -->
-                <audio controls>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                    Trình duyệt của bạn không hỗ trợ audio.
-                </audio>
-            </div>
-
-            <div class="media-card">
-                <h4>Video chủ đề Noel</h4>
-                <!-- Có thể thay bằng link video HTML5 (.mp4) hoặc nhúng iframe YouTube -->
-                <video controls>
-                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
-                    Trình duyệt của bạn không hỗ trợ video.
-                </video>
-            </div>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="year-highlight">2025</td>
+                <td>25/12/2025</td>
+                <td>Thứ Năm</td>
+                <td>Năm nay</td>
+              </tr>
+              <tr>
+                <td class="year-highlight">2026</td>
+                <td>25/12/2026</td>
+                <td>Thứ Sáu</td>
+                <td>1 năm nữa</td>
+              </tr>
+              <tr>
+                <td class="year-highlight">2027</td>
+                <td>25/12/2027</td>
+                <td>Thứ Bảy</td>
+                <td>2 năm nữa</td>
+              </tr>
+              <tr>
+                <td class="year-highlight">2028</td>
+                <td>25/12/2028</td>
+                <td>Thứ Hai</td>
+                <td>3 năm nữa</td>
+              </tr>
+              <tr>
+                <td class="year-highlight">2029</td>
+                <td>25/12/2029</td>
+                <td>Thứ Ba</td>
+                <td>4 năm nữa</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        Bài làm của: <span>Họ và tên</span> – Lớp: <span>Lớp của bạn</span>
-    </footer>
-</div>
+  <!-- GALLERY -->
+  <section class="section reveal" id="gallery">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-images"></i> Khoảnh khắc Giáng Sinh
+        <span>Toàn bộ ảnh bên dưới Chủ nhân có thể thay theo ý</span>
+      </h2>
+      <p class="section-desc">
+        Một vài gợi ý: góc phòng khách với cây thông, phố đi bộ đêm Noel, tách
+        cacao, bàn tiệc gia đình, hay đơn giản là ánh đèn ngoài cửa sổ.
+      </p>
+    </div>
 
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/1661900/pexels-photo-1661900.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Living room" />
+        <div class="gallery-label"><i class="fas fa-tree"></i> Góc phòng khách</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/3762511/pexels-photo-3762511.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Street" />
+        <div class="gallery-label"><i class="fas fa-city"></i> Phố đêm Noel</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/257910/pexels-photo-257910.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Cacao" />
+        <div class="gallery-label"><i class="fas fa-mug-hot"></i> Cacao & bánh quy</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/1303094/pexels-photo-1303094.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gifts" />
+        <div class="gallery-label"><i class="fas fa-gift"></i> Hộp quà nhỏ</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/3058275/pexels-photo-3058275.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Dinner" />
+        <div class="gallery-label"><i class="fas fa-utensils"></i> Bữa tối gia đình</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/1729797/pexels-photo-1729797.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Lights" />
+        <div class="gallery-label"><i class="fas fa-lightbulb"></i> Ánh đèn lấp lánh</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISHES -->
+  <section class="section reveal" id="wishes">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-heart"></i> Gửi lời chúc Giáng Sinh
+        <span>Viết ra điều bạn muốn gửi đến ai đó trong mùa Noel này</span>
+      </h2>
+      <p class="section-desc">
+        “Để lúc khác rồi nói” thường là lý do làm mình lỡ mất rất nhiều lời
+        chúc đẹp. Nếu muốn, Chủ nhân có thể thử ghi lại vài dòng – cho chính
+        mình, cho gia đình hay cho một người cụ thể.
+      </p>
+    </div>
+
+    <div class="wish-layout">
+      <form class="wish-form" onsubmit="handleWishSubmit(event)">
+        <label for="wishName">Tên bạn (hoặc người nhận):</label>
+        <input id="wishName" placeholder="Ví dụ: Bảo Yến, Ba Mẹ, Bạn thân..." oninput="updateWishPreview()" />
+        <label for="wishMessage" style="margin-top:6px;">Lời chúc:</label>
+        <textarea id="wishMessage" placeholder="Viết lời chúc Giáng Sinh ở đây..." oninput="updateWishPreview()"></textarea>
+        <button type="submit" class="btn btn-primary" style="margin-top:10px;">
+          <i class="fas fa-paper-plane"></i> Gửi lời chúc (demo)
+        </button>
+      </form>
+
+      <div class="wish-preview">
+        <div class="wish-preview-inner">
+          <div class="wish-preview-header">
+            <i class="fas fa-envelope-open-text"></i>
+            <span>Xem trước lời chúc</span>
+          </div>
+          <div id="wishPreviewBody" class="wish-preview-body wish-preview-empty">
+            Chưa có nội dung. Khi Chủ nhân nhập tên và lời chúc, phần này sẽ
+            hiển thị bản preview để dễ chỉnh sửa trước khi gửi.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <i class="far fa-copyright"></i>
+      2025 · Trang Noel được tạo bởi
+      <strong>Trịnh Thị Bảo Yến – Trung Học Phổ Thông Long Khánh</strong>
+    </p>
+    <div class="footer-links">
+      <a href="#top"><i class="fas fa-arrow-up"></i> Lên đầu trang</a>
+      <a href="#video"><i class="fas fa-music"></i> Video Noel</a>
+      <a href="https://vi.wikipedia.org/wiki/Gi%C3%A1ng_Sinh" target="_blank">
+        <i class="fab fa-wikipedia-w"></i> Tìm hiểu thêm
+      </a>
+    </div>
+    <p>Chúc Chủ nhân và những người bên cạnh có một mùa Giáng Sinh thật ấm.</p>
+  </footer>
+</main>
+
+<script>
+/* ========== TUYẾT ========== */
+function createSnowflakes(){
+  const c=document.getElementById("snowflakes");
+  const count=90;
+  for(let i=0;i<count;i++){
+    const s=document.createElement("div");
+    s.className="snowflake";
+    const size=Math.random()*7+3;
+    s.style.width=size+"px";
+    s.style.height=size+"px";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=Math.random()*8+6+"s";
+    s.style.animationDelay=Math.random()*6+"s";
+    s.style.opacity=(Math.random()*0.7+0.3).toString();
+    c.appendChild(s);
+  }
+}
+
+/* ========== VIDEO YOUTUBE ========== */
+// THAY ID VIDEO Ở ĐÂY
+const YOUTUBE_ID="F074LkX6zr4";
+function playYoutube(){
+  const card=document.getElementById("videoCard");
+  card.classList.add("playing");
+  card.innerHTML=`
+    <iframe
+      class="video-iframe"
+      src="https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      frameborder="0">
+    </iframe>
+  `;
+}
+
+/* ========== COUNTDOWN NOEL 2025 ========== */
+function updateCountdown(){
+  const el=document.getElementById("countdownText");
+  const now=new Date();
+  const christmas=new Date(2025,11,25); // 25/12/2025
+  const diff=christmas-now;
+  if(diff<=0){
+    el.textContent="Hôm nay là Giáng Sinh 🎄";
+    return;
+  }
+  const days=Math.ceil(diff/(1000*60*60*24));
+  el.textContent=`Còn ${days} ngày đến Giáng Sinh`;
+}
+
+/* ========== SCROLL PROGRESS ========== */
+function updateScrollProgress(){
+  const bar=document.getElementById("scrollbar");
+  const scrollTop=window.scrollY;
+  const docHeight=document.body.scrollHeight-window.innerHeight;
+  const progress=docHeight>0?scrollTop/docHeight:0;
+  bar.style.transform=`scaleX(${progress})`;
+}
+
+/* ========== WISH PREVIEW / SUBMIT ========== */
+function updateWishPreview(){
+  const name=(document.getElementById("wishName").value||"").trim();
+  const msg=(document.getElementById("wishMessage").value||"").trim();
+  const preview=document.getElementById("wishPreviewBody");
+  if(!name && !msg){
+    preview.classList.add("wish-preview-empty");
+    preview.textContent="Bảo Yến Chúc Mọi Người Có 1 Mùa Noel Chất Lượng Và Vui Vẻ Bên Gia Đình";
+    return;
+  }
+  preview.classList.remove("wish-preview-empty");
+  const displayName=name||"Bạn";
+  const displayMsg=msg||"Chúc Giáng Sinh an lành, ấm áp và thật nhiều bình an.";
+  preview.textContent=`${displayName} gửi gắm:\n"${displayMsg}"`;
+}
+
+function handleWishSubmit(e){
+  e.preventDefault();
+  const name=(document.getElementById("wishName").value||"Bạn").trim();
+  const msg=(document.getElementById("wishMessage").value||"Chúc Giáng Sinh an lành, ấm áp và thật nhiều niềm vui.").trim();
+  alert(`${name} ơi,\n\nLời chúc của bạn:\n"${msg}"\n\nCoi như đã được “gửi” vào đêm Giáng Sinh năm nay.`);
+}
+
+/* ========== REVEAL ON SCROLL ========== */
+function initReveal(){
+  const els=document.querySelectorAll(".reveal");
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15});
+  els.forEach(el=>observer.observe(el));
+}
+
+/* ========== INIT ========== */
+document.addEventListener("DOMContentLoaded",()=>{
+  createSnowflakes();
+  updateCountdown();
+  initReveal();
+  window.addEventListener("scroll",()=>{
+    updateScrollProgress();
+  });
+  updateScrollProgress();
+  // cập nhật countdown mỗi 1 giờ là đủ
+  setInterval(updateCountdown,60*60*1000);
+});
+</script>
 </body>
 </html>
